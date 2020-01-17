@@ -49,57 +49,6 @@ def sorry():
     #Playing the sound 
     playsound('C:\\Users\\jayzf\\Desktop\\TEJFinalProject\\sorry_didnt_catch.mp3')
 
-import pyfirmata
-import time
-import speech_recognition as sr
-import pyowm
-from gtts import gTTS
-import os
-from playsound import playsound
-
-command_num = 0
-
-r = sr.Recognizer()
-mic = sr.Microphone()
-mic1 = sr.Microphone()
-
-board = pyfirmata.Arduino('COM4')
-
-#GTTS Variables
-language = 'en'
-
-#Set pieces of text
-#Sorry didn't catch
-didnt = gTTS(text="I did not quite catch that, please repeat your last statement", lang=language, slow=False)
-didnt.save("sorry_didnt_catch.mp3")
-
-#lights on
-lights_on_speech = gTTS(text="Turning Lights On", lang=language, slow=False)
-lights_on_speech.save("lights_on.mp3")
-
-#lights off
-lights_off_speech = gTTS(text="Turning Lights Off", lang=language, slow=False)
-lights_off_speech.save("lights_off.mp3")
-
-#garage door open
-garage_close = gTTS(text="Closing the garage", lang=language, slow=False)
-garage_close.save("garage_close.mp3")
-
-#garage door close
-garage_open = gTTS(text="Opening the gate", lang=language, slow=False)
-garage_open.save("garage_open.mp3")
-
-#garage door close
-note_name = gTTS(text="What would you like to call this note", lang=language, slow=False)
-note_name.save("note_name.mp3")
-
-what_note = gTTS(text="what note would you like me to read", lang=language, slow=False)
-what_note.save("what_note.mp3")
-
-def sorry():
-    #Playing the sound 
-    playsound('C:\\Users\\jayzf\\Desktop\\TEJFinalProject\\sorry_didnt_catch.mp3')
-
 # To-do:
 # Surround the entire program in a try-catch statement such that if the microphone picks up something that either didn't make sense, or it didn't pick up anything at all
 with mic as source:
