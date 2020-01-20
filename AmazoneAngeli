@@ -211,36 +211,6 @@ with mic as source:
                                 # you can access the variable through notes["+" + titleChoice] and then putting that into a playsound
                             else:
                                 # TTS that will tell the user that the note underneath that title does not exist
-
-                                
-                        with mic1 as source1:
-                                playsound('what_note.mp3')
-                                r.adjust_for_ambient_noise(source1)
-                                audio = r.listen(source1)
-                                what_note = r.recognize_google(audio)
-                        
-                        with notesFile as f:
-                            lineNumber = 0
-                            note_read = ""
-                            for line in f:
-                                lineNumber += 1
-                                if line == "+" + what_note:
-
-                                    startLine = lineNumber + 1
-                                    
-                                    while "+" not in notesFile[startLine]:
-                                        note_read = note_read + "and" + notesFile[startLine]
-
-                                    note_to_read = gTTS(text=note_read, lang=language, slow=False)
-                                    note_to_read.save("note_to_read" + command_num + ".mp3")
-
-                                    playsound('note_to_read' + command_num + '.mp3')
-                                    os.remove('note_to_read' + command_num + '.mp3')
-                                    command_num += 1
-
-
-               
-
                 else:
                     print ("I did not quite catch that. Please try again. ")
                     sorry()
